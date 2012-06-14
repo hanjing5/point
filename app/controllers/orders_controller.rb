@@ -7,8 +7,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:product_id])
     @place = Place.find(params[:place_id])
+    # this should be current customer.orders
     @place.orders.new(params[:order])
     @place.save
 
