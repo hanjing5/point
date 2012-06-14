@@ -1,23 +1,42 @@
 %h1 Places#show
 %p Find me in app/views/places/show.html.haml
 
-%table{:class=>'table'}
-  - @place.products.each do |p|
-    -if not p.id.nil?
+.menu
+  %table{:class=>'table'}
+    - @place.products.each do |p|
+      -if not p.id.nil?
+        %tr
+          %td
+            = p.name
+          %td
+            = number_to_currency p.price
+          %td
+            = form_for p.orders.new, :url=>place_product_orders_path(p.place_id, p.id) do |f|
+              = f.submit 'buy'
+.pull-left
+  = form_for @product, :url=>place_products_path(@place.id) do |f|
+    %table
       %tr
         %td
-          = p.name
+          Name
         %td
-          = number_to_currency p.price
+          =f.text_field :name
+      %tr
         %td
-          = form_for p.orders.new, :url=>place_product_orders_path(p.place_id, p.id) do |f|
-            = f.submit 'buy'
+          price
+        %td
+          =f.text_field :price
+      %tr
+        %td
+          Description
+        %td
+          =f.text_area :desc
+      %tr
+        %td
+        %td
+          =f.submit 'Add', :class=>'btn'
 
-= form_for @product, :url=>place_products_path(@place.id) do |f|
-  name
-  = f.text_field :name
-  price
-  = f.text_field :price
-  description
-  = f.text_field :desc
-  = f.submit
+.pull-right
+  -@products.each do |p|
+    = p.name
+    %br

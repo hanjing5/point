@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
   def new
     @place = Place.new
+    @places = Place.all
   end
 
   def create
@@ -12,6 +13,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @product = @place.products.new
+    @products = @place.products.all
   end
 
   def edit

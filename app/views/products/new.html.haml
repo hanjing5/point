@@ -1,2 +1,29 @@
 %h1 Products#new
 %p Find me in app/views/products/new.html.haml
+
+.pull-left
+  %table
+    =form_for @product do |f|
+      %tr
+        %td
+          Name
+        %td
+          =f.text_field :name
+      %tr
+        %td
+          Price
+        %td
+          =f.text_area :price
+      %tr
+        %td
+          Description
+        %td
+          =f.text_area :desc
+      %tr
+        %td
+        %td
+          =f.submit 'Add', :class=>'btn'
+.pull-right
+  -@products.each do |p|
+    =p.name
+    %br

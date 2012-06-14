@@ -1,3 +1,7 @@
+
+= link_to 'add new location', new_place_path
+%br
+
 %table{:style=>'width:100%'}
   -@orders.each do |o|
     %tr
@@ -8,3 +12,13 @@
           call
       %td
         = link_to 'picked-up', order_path(:id=>o.id), :method=>'delete'
+
+%table{:style=>'width:100%'}
+  -@products.each do |p|
+    %tr
+      %td
+        = p.name
+      %td
+        = p.price
+      %td
+
