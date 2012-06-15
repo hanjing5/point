@@ -1,5 +1,8 @@
 %h1 Places#show
-%p Find me in app/views/places/show.html.haml
+
+%h1 
+  Welcome to 
+  =@place.name
 
 .menu
   %table{:class=>'table'}
@@ -13,6 +16,8 @@
           %td
             = form_for p.orders.new, :url=>place_product_orders_path(p.place_id, p.id) do |f|
               = f.submit 'buy'
+
+%h2 Add a drink
 .pull-left
   = form_for @product, :url=>place_products_path(@place.id) do |f|
     %table

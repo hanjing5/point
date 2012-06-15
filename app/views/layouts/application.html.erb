@@ -7,6 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <%= link_to 'Point', root_path, :class=>'brand' %>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Place<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li class="divider"></li>
+                <li class="nav-header">Quick Access</li>
+                <li class="nav-header">Special Access</li>
+              </ul>
+            </li>
+            <% if current_merchant %>
+            <li class="dropdown">
+                <%= link_to 'Add new location', new_place_path%>
+            </li>
+            <li class="dropdown">
+            <%= link_to 'Sign Out', destroy_merchant_session_path%>
+            </li>
+            <% end %>
+          </ul>
+          <form class="navbar-search pull-right" action="">
+            <input type="text" class="search-query span2" placeholder="Search">
+          </form>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div><!-- /navbar -->
 
 <%= yield %>
 
