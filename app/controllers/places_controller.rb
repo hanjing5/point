@@ -1,11 +1,13 @@
 class PlacesController < ApplicationController
   def new
     @place = Place.new
-    @places = Place.all
+    @places = current_merchant.places.all
   end
 
   def create
-    @place = Place.new(params[:place])
+    
+    @place = current_merchant.places.new(params[:place])
+
     @place.save
     redirect_to new_place_path
   end

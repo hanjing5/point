@@ -1,6 +1,6 @@
 class Place < ActiveRecord::Base
-	belongs_to :merchant
-	has_many :products
+  belongs_to :merchant
+  has_many :products
 
   attr_accessible :address, :city, :desc, :name, :state, :zip
 end

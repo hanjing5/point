@@ -1,5 +1,12 @@
 
-= link_to 'add new location', new_place_path
+- if current_merchant
+  #InfoBox
+    = link_to 'add new location', new_place_path, :class=>'btn'
+    Hello Merchant!
+
+%h1
+  Pick a place
+%br
 %br
 
 %table{:style=>'width:100%'}
@@ -13,12 +20,10 @@
       %td
         = link_to 'picked-up', order_path(:id=>o.id), :method=>'delete'
 
-%table{:style=>'width:100%'}
-  -@products.each do |p|
+%table{:style=>'width:100%', :class=>'table'}
+  -@places.each do |p|
     %tr
       %td
-        = p.name
+        = link_to p.name, place_path(p.id)
       %td
-        = p.price
       %td
-
