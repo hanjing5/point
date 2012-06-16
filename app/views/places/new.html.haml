@@ -1,8 +1,23 @@
 %h1 Places#new
-%p Find me in app/views/places/new.html.haml
 
-
-=form_for @place do |f|
-  =f.text_field :name
-  =f.text_field :desc
-  =f.submit 'Add'
+.pull-left
+  %table
+    =form_for @place do |f|
+      %tr
+        %td
+          Name
+        %td
+          =f.text_field :name
+      %tr
+        %td
+          Description
+        %td
+          =f.text_area :desc
+      %tr
+        %td
+        %td
+          =f.submit 'Add', :class=>'btn'
+.pull-right
+  -@places.each do |p|
+    =link_to p.name, place_path(p.id)
+    %br

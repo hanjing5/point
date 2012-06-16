@@ -1,3 +1,9 @@
+
+%h1
+  Pick a place
+%br
+%br
+
 %table{:style=>'width:100%'}
   -@orders.each do |o|
     %tr
@@ -11,3 +17,11 @@
 
 -if current_merchant.nil?
   = link_to 'merchant sign in', new_merchant_session_path
+
+%table{:style=>'width:100%', :class=>'table'}
+  -@places.each do |p|
+    %tr
+      %td
+        = link_to p.name, place_path(p.id)
+      %td
+      %td

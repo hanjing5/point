@@ -14,6 +14,7 @@ end
 #  updated_at  :datetime        not null
 #  customer_id :integer
 #  merchant_id :integer
-#  redeemed    :boolean
+#  product_id  :integer
+#  redeemed    :boolean         default(FALSE)
 #
 

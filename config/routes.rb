@@ -9,8 +9,6 @@ Pos::Application.routes.draw do
   get "places/index"
 
   devise_for :customers
-
-
   devise_for :merchants
 
   devise_scope :merchants do
