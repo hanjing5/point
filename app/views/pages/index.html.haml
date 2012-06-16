@@ -8,3 +8,6 @@
           call
       %td
         = link_to 'picked-up', order_path(:id=>o.id), :method=>'delete'
+
+-if current_merchant.nil?
+  = link_to 'merchant sign in', new_merchant_session_path
