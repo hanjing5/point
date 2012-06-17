@@ -1,9 +1,25 @@
-%h1 Orders#new
-%p Find me in app/views/orders/new.html.haml
+%h1 You are ordering
+%hr
+%table
+  =form_for @order do |o|
+    =o.hidden_field 'product_id', :value=>@product.id
+    =o.hidden_field 'place_id', :value=>@place.id
+    %tr
+      %td
+        %h1
+          =@product.name
+      %td
+        %h1
+          =number_to_currency @product.price
 
-
-= form_for @order do |o|
-  =o.hidden_field :product_id,@product.id
-  =o.hidden_field :place_id, @place.id
-  =o.submit 'Confirm Purchase'
+    %tr
+      %td
+        %h2
+          @
+      %td
+        %h1
+          =@place.name
+    %tr
+      %td
+        =o.submit 'Confirm Purchase',:class=>'btn'
   

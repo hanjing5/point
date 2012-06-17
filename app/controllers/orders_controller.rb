@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   def new
     @place = Place.find(params[:place_id])
+    @order = Order.new
+    @product = Product.find(params[:product_id])
   end
 
   def show
