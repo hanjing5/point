@@ -14,7 +14,8 @@ Pos::Application.routes.draw do
   devise_scope :merchants do
     resources :places do
       resources :products do 
-        resources :orders
+        resources :orders do 
+        end
       end
     end
   end

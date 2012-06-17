@@ -1,9 +1,8 @@
-%h1 Places#show
-
 %h1 
   Welcome to 
   =@place.name
 
+%h3 Menu
 .menu
   %table{:class=>'table'}
     - @place.products.each do |p|
@@ -14,8 +13,7 @@
           %td
             = number_to_currency p.price
           %td
-            = form_for p.orders.new, :url=>place_product_orders_path(p.place_id, p.id) do |f|
-              = f.submit 'buy'
+            = link_to 'buy', new_place_product_order_path(p.place_id, p.id)
 
 %h2 Add a drink
 .pull-left
