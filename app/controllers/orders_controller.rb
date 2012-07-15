@@ -10,8 +10,9 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @place = Place.find(params[:place_id])
     # this should be current customer.orders
-    @place.orders.new(params[:order])
-    @place.save
+    @product.orders.new(params[:order])
+    @product.save
+    #@place.orders.new(params[:order])
 
     redirect_to place_path(@place.id)
   end
