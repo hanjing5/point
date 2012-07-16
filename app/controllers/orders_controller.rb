@@ -8,6 +8,11 @@ class OrdersController < ApplicationController
   end
 
   def create
+    if current_customer.nil?
+      flash[:flash] = "Place sign in to place an order"
+      redirect_to new_customer_session_path
+      return
+    end
     @product = Product.find(params[:product_id])
     @place = Place.find(params[:place_id])
     # this should be current customer.orders
@@ -15,13 +20,13 @@ class OrdersController < ApplicationController
     @order = @product.orders.new(params[:order])
     if @order.save
       redirect_to order_path(@order.id)
+      params[:flash] = "purchase success!"
+
       #@place.orders.new(params[:order])
     else
       params[:flash] = "can't purchase the item"
       redirect_to place_path(@place.id)
     end
-
-
   end
 
   def index

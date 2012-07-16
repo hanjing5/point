@@ -26,6 +26,11 @@
                 <li class="nav-header">Special Access</li>
               </ul>
             </li>
+            <% if current_customer %>
+            <li>
+              Orders
+            </li>
+            <% end %>
             <% if current_merchant %>
             <li class="dropdown">
                 <%= link_to 'Add new location', new_place_path%>
