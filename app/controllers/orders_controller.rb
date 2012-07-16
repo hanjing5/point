@@ -30,6 +30,12 @@ class OrdersController < ApplicationController
   end
 
   def index
+    if current_customer.nil?
+      flash[:flash] = "Place sign in to check your orders"
+      redirect_to new_customer_session_path
+      return
+    end
+    @orders = current_user.orders.all
   end
 
   def destroy
