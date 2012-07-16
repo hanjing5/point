@@ -1,8 +1,0 @@
-%table
-  - @beverages.each do |b|
-    %tr
-      %a{:href=>beverage_path(b.id)}
-        %td
-          = link_to b.name, order_path(b.id)
-        %td
-          = number_to_currency b.price.to_f / 100

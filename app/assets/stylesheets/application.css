@@ -19,3 +19,7 @@ table td{
 .checkout{
   text-align:center;
 }
+
+.main{
+  min-height:400px;
+}

@@ -1,8 +1,8 @@
-%h1 Places#show
-
 %h1 
   Welcome to 
   =@place.name
+
+%br
 
 .menu
   %table{:class=>'table'}
@@ -14,7 +14,7 @@
           %td
             = number_to_currency p.price
           %td
-            = link_to 'Buy', place_product_path(@place.id, p.id), :class=>'btn btn-small'
+            = link_to 'order', place_product_path(@place.id, p.id), :class=>'btn btn-small btn-primary'
 
 -if current_merchant
   %h2 Add a drink

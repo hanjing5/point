@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
     # this should be current customer.orders
 
     @order = @product.orders.new(params[:order])
+    @order.customer_id = current_customer.id
     if @order.save
       redirect_to order_path(@order.id)
       params[:flash] = "purchase success!"
@@ -35,7 +36,7 @@ class OrdersController < ApplicationController
       redirect_to new_customer_session_path
       return
     end
-    @orders = current_user.orders.all
+    @orders = current_customer.orders.all
   end
 
   def destroy
