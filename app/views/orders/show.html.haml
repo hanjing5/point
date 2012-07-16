@@ -1,7 +1,17 @@
-= form_for @beverage, :url=>orders_path,:method=>'post' do |f|
-  = f.text_field :name, :value=>@beverage.name
-  = f.text_field 'id', :value=>@beverage.id
-  %p
-    = number_to_currency @beverage.price.to_f/100
-  = f.hidden_field :price, :value=>@beverage.price.to_f/100
-  = f.submit 'Purchase!'
+%h2
+  Thank you!
+
+%h2
+  Your order is currently being processed.
+
+%h2 
+  Your number is 
+  = @order.id
+%h2
+  Wait time is around 5 minutes.
+
+%h2
+  = @product.name
+%h2
+  = number_to_currency @product.price
+

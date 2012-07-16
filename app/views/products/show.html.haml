@@ -1,2 +1,13 @@
-%h1 Products#show
-%p Find me in app/views/products/show.html.haml
+.checkout
+  %h1 Products#show
+  %br
+
+  = form_for @product.orders.new, :url=>place_product_orders_path(@product.place_id, @product.id) do |f|
+    %h2 I want to buy
+    %h2
+      1
+      = @product.name
+    %h2= number_to_currency @product.price
+
+    %br
+    = f.submit 'BUY',:class=>'btn btn-large btn-primary'

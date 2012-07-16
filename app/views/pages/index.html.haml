@@ -1,22 +1,9 @@
+%h1
+  Our Locations
 
 %h1
-  Pick a place
-%br
-%br
+  Your Orders
 
-%table{:style=>'width:100%'}
-  -@orders.each do |o|
-    %tr
-      %td
-        = Beverage.find(o.beverage_id).name
-      %td
-        %button
-          call
-      %td
-        = link_to 'picked-up', order_path(:id=>o.id), :method=>'delete'
-
--if current_merchant.nil?
-  = link_to 'merchant sign in', new_merchant_session_path
 
 %table{:style=>'width:100%', :class=>'table'}
   -@places.each do |p|
@@ -25,3 +12,5 @@
         = link_to p.name, place_path(p.id)
       %td
       %td
+
+

@@ -1,0 +1,62 @@
+        new_customer_session GET    /customers/sign_in(.:format)                                     devise/sessions#new
+            customer_session POST   /customers/sign_in(.:format)                                     devise/sessions#create
+    destroy_customer_session DELETE /customers/sign_out(.:format)                                    devise/sessions#destroy
+           customer_password POST   /customers/password(.:format)                                    devise/passwords#create
+       new_customer_password GET    /customers/password/new(.:format)                                devise/passwords#new
+      edit_customer_password GET    /customers/password/edit(.:format)                               devise/passwords#edit
+                             PUT    /customers/password(.:format)                                    devise/passwords#update
+cancel_customer_registration GET    /customers/cancel(.:format)                                      devise/registrations#cancel
+       customer_registration POST   /customers(.:format)                                             devise/registrations#create
+   new_customer_registration GET    /customers/sign_up(.:format)                                     devise/registrations#new
+  edit_customer_registration GET    /customers/edit(.:format)                                        devise/registrations#edit
+                             PUT    /customers(.:format)                                             devise/registrations#update
+                             DELETE /customers(.:format)                                             devise/registrations#destroy
+        new_merchant_session GET    /merchants/sign_in(.:format)                                     devise/sessions#new
+            merchant_session POST   /merchants/sign_in(.:format)                                     devise/sessions#create
+    destroy_merchant_session DELETE /merchants/sign_out(.:format)                                    devise/sessions#destroy
+           merchant_password POST   /merchants/password(.:format)                                    devise/passwords#create
+       new_merchant_password GET    /merchants/password/new(.:format)                                devise/passwords#new
+      edit_merchant_password GET    /merchants/password/edit(.:format)                               devise/passwords#edit
+                             PUT    /merchants/password(.:format)                                    devise/passwords#update
+cancel_merchant_registration GET    /merchants/cancel(.:format)                                      devise/registrations#cancel
+       merchant_registration POST   /merchants(.:format)                                             devise/registrations#create
+   new_merchant_registration GET    /merchants/sign_up(.:format)                                     devise/registrations#new
+  edit_merchant_registration GET    /merchants/edit(.:format)                                        devise/registrations#edit
+                             PUT    /merchants(.:format)                                             devise/registrations#update
+                             DELETE /merchants(.:format)                                             devise/registrations#destroy
+        place_product_orders GET    /places/:place_id/products/:product_id/orders(.:format)          orders#index
+                             POST   /places/:place_id/products/:product_id/orders(.:format)          orders#create
+     new_place_product_order GET    /places/:place_id/products/:product_id/orders/new(.:format)      orders#new
+    edit_place_product_order GET    /places/:place_id/products/:product_id/orders/:id/edit(.:format) orders#edit
+         place_product_order GET    /places/:place_id/products/:product_id/orders/:id(.:format)      orders#show
+                             PUT    /places/:place_id/products/:product_id/orders/:id(.:format)      orders#update
+                             DELETE /places/:place_id/products/:product_id/orders/:id(.:format)      orders#destroy
+              place_products GET    /places/:place_id/products(.:format)                             products#index
+                             POST   /places/:place_id/products(.:format)                             products#create
+           new_place_product GET    /places/:place_id/products/new(.:format)                         products#new
+          edit_place_product GET    /places/:place_id/products/:id/edit(.:format)                    products#edit
+               place_product GET    /places/:place_id/products/:id(.:format)                         products#show
+                             PUT    /places/:place_id/products/:id(.:format)                         products#update
+                             DELETE /places/:place_id/products/:id(.:format)                         products#destroy
+                      places GET    /places(.:format)                                                places#index
+                             POST   /places(.:format)                                                places#create
+                   new_place GET    /places/new(.:format)                                            places#new
+                  edit_place GET    /places/:id/edit(.:format)                                       places#edit
+                       place GET    /places/:id(.:format)                                            places#show
+                             PUT    /places/:id(.:format)                                            places#update
+                             DELETE /places/:id(.:format)                                            places#destroy
+                   beverages GET    /beverages(.:format)                                             beverages#index
+                             POST   /beverages(.:format)                                             beverages#create
+                new_beverage GET    /beverages/new(.:format)                                         beverages#new
+               edit_beverage GET    /beverages/:id/edit(.:format)                                    beverages#edit
+                    beverage GET    /beverages/:id(.:format)                                         beverages#show
+                             PUT    /beverages/:id(.:format)                                         beverages#update
+                             DELETE /beverages/:id(.:format)                                         beverages#destroy
+                      orders GET    /orders(.:format)                                                orders#index
+                             POST   /orders(.:format)                                                orders#create
+                   new_order GET    /orders/new(.:format)                                            orders#new
+                  edit_order GET    /orders/:id/edit(.:format)                                       orders#edit
+                       order GET    /orders/:id(.:format)                                            orders#show
+                             PUT    /orders/:id(.:format)                                            orders#update
+                             DELETE /orders/:id(.:format)                                            orders#destroy
+                        root        /                                                                pages#index

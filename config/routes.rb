@@ -1,13 +1,5 @@
 Pos::Application.routes.draw do
 
-  get "products/new"
-  get "products/show"
-  get "products/index"
-
-  get "places/new"
-  get "places/show"
-  get "places/index"
-
   devise_for :customers
   devise_for :merchants
 

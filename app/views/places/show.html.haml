@@ -14,34 +14,34 @@
           %td
             = number_to_currency p.price
           %td
-            = form_for p.orders.new, :url=>place_product_orders_path(p.place_id, p.id) do |f|
-              = f.submit 'buy'
+            = link_to 'Buy', place_product_path(@place.id, p.id), :class=>'btn btn-small'
 
-%h2 Add a drink
-.pull-left
-  = form_for @product, :url=>place_products_path(@place.id) do |f|
-    %table
-      %tr
-        %td
-          Name
-        %td
-          =f.text_field :name
-      %tr
-        %td
-          price
-        %td
-          =f.text_field :price
-      %tr
-        %td
-          Description
-        %td
-          =f.text_area :desc
-      %tr
-        %td
-        %td
-          =f.submit 'Add', :class=>'btn'
+-if current_merchant
+  %h2 Add a drink
+  .pull-left
+    = form_for @product, :url=>place_products_path(@place.id) do |f|
+      %table
+        %tr
+          %td
+            Name
+          %td
+            =f.text_field :name
+        %tr
+          %td
+            price
+          %td
+            =f.text_field :price
+        %tr
+          %td
+            Description
+          %td
+            =f.text_area :desc
+        %tr
+          %td
+          %td
+            =f.submit 'Add', :class=>'btn'
 
-.pull-right
-  -@products.each do |p|
-    = p.name
-    %br
+  .pull-right
+    -@products.each do |p|
+      = p.name
+      %br

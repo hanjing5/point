@@ -31,7 +31,7 @@
                 <%= link_to 'Add new location', new_place_path%>
             </li>
             <li class="dropdown">
-            <%= link_to 'Sign Out', destroy_merchant_session_path%>
+            <%= link_to 'Sign Out', destroy_merchant_session_path, :method=>'delete'%>
             </li>
             <% end %>
           </ul>
@@ -45,5 +45,6 @@
 
 <%= yield %>
 
+<%= render 'pages/footer' %>
 </body>
 </html>

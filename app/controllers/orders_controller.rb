@@ -3,18 +3,25 @@ class OrdersController < ApplicationController
   end
 
   def show
-      @beverage = Beverage.find(params[:id])
+    @order = Order.find(params[:id])
+    @product = Product.find(@order.product_id)
   end
 
   def create
     @product = Product.find(params[:product_id])
     @place = Place.find(params[:place_id])
     # this should be current customer.orders
-    @product.orders.new(params[:order])
-    @product.save
-    #@place.orders.new(params[:order])
 
-    redirect_to place_path(@place.id)
+    @order = @product.orders.new(params[:order])
+    if @order.save
+      redirect_to order_path(@order.id)
+      #@place.orders.new(params[:order])
+    else
+      params[:flash] = "can't purchase the item"
+      redirect_to place_path(@place.id)
+    end
+
+
   end
 
   def index
