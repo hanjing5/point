@@ -26,6 +26,11 @@ class PlacesController < ApplicationController
   end
 
   def index
-    @places = Place.all
+    if current_merchant.nil?
+      params[:flash] = "You need a merchant account to manage your places"
+      redirect_to root_path
+      return
+    end
+    @places = current_merchant.places.all
   end
 end

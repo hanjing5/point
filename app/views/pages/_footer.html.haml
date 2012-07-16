@@ -2,3 +2,9 @@
 .footer
   -if current_merchant.nil?
     = link_to 'merchant access', new_merchant_session_path
+  -else
+    = link_to 'My locations', places_path
+    |
+    = link_to 'Add new location', new_place_path
+    |
+    = link_to 'Sign Out', destroy_merchant_session_path, :method=>'delete'
